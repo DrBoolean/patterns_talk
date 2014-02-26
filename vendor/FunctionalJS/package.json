@@ -1,0 +1,25 @@
+{ 
+  "name": "functionaljs",
+  "description": "beefed up version of osteeles' library: http://osteele.com/sources/javascript/functional/",
+  "version": "0.1.0",
+  "author": "loop/recur <info@looprecur.com>",
+  "maintainers": [
+    "Brian Lonsdorf <brian@looprecur.com>",
+    "Ryan Charette <ryan@looprecur.com>",
+    "Eric Schmitt <eric.schmitt@looprecur.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/loop-recur/FunctionalJS.git"
+  },
+  "devDependencies": {
+    "jasmine-node": "*"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "jasmine-node --coffee specs"
+  },
+  "main": "./functional.js"
+}
