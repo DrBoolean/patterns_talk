@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)#charAt -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Lambdajs - lib1 - Documentation</title>
+  <link href="./docs_files/style.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="./docs_files/prettify.css">
+  <script src="./../utils.js"></script>
+  <script src="./../lambda.js"></script>
+  <script>
+    LambdaJS.expose();
+  </script>
+</head>
+<body class=" hasGoogleVoiceExt" style="">
+
+  <aside class="sidebar">
+    <nav>
+      <span data-show="all" class="current">all</span>
+      <span data-show="string">string</span>
+      <span data-show="array">array</span>
+      <span data-show="object">object</span>
+      <span data-show="number">number</span>
+      <span data-show="regexp">regexp</span>
+    </nav>
+    <ul>
+      <li><h2>Strings</h2></li>
+      <li class="string"><a href="#Strings.charAt">charAt</a></li>
+      <li class="string"><a href="#Strings.charCodeAt">charCodeAt</a></li>
+      <li class="string"><a href="#Strings.concat">concat</a></li>
+      <li class="string"><a href="#Strings.indexOf">indexOf</a></li>
+      <li class="string"><a href="#Strings.indexOf_">indexOf_</a></li>
+      <li class="string"><a href="#Strings.lastIndexOf">lastIndexOf</a></li>
+      <li class="string"><a href="#Strings.match">match</a></li>
+      <li class="string"><a href="#Strings.replace">replace</a></li>
+      <li class="string"><a href="#Strings.search">search</a></li>
+      <li class="string"><a href="#Strings.slice">slice</a></li>
+      <li class="string"><a href="#Strings.slice_">slice_</a></li>
+      <li class="string"><a href="#Strings.split">split</a></li>
+      <li class="string"><a href="#Strings.split_">split_</a></li>
+      <li class="string"><a href="#Strings.substring">substring</a></li>
+      <li class="string"><a href="#Strings.substring_">substring_</a></li>
+      <li class="string"><a href="#Strings.toLocaleLowerCase">toLocaleLowerCase</a></li>
+      <li class="string"><a href="#Strings.toLocaleUpperCase">toLocaleUpperCase</a></li>
+      <li class="string"><a href="#Strings.toLocaleString">toLocaleString</a></li>
+      <li class="string"><a href="#Strings.toLowerCase">toLowerCase</a></li>
+      <li class="string"><a href="#Strings.toUpperCase">toUpperCase</a></li>
+      <li class="string"><a href="#Strings.trim">trim</a></li>
+
+      <li><h2>Arrays</h2></li>
+      <li class="string"><a href="#exec">exec</a></li>
+      <li class="object"><a href="#hasOwnProperty">hasOwnProperty</a></li>
+      
+      <li class="object"><a href="#isPrototypeOf">isPrototypeOf</a></li>
+      <li class="array"><a href="#join">join</a></li>
+      <li class="string array"><a href="#lastIndexOf">lastIndexOf</a></li>
+      <li class="string array"><a href="#length">length</a></li>
+      <li class=""><a href="#localCompare">localCompare</a></li>
+      
+      <li class="string array"><a href="#pop">pop</a></li>
+      <li class="string array"><a href="#pop_">pop_</a></li>
+      <li class="string array"><a href="#push">push</a></li>
+      <li class=""><a href="#propertyIsEnumerable">propertyIsEnumerable</a></li>
+      <li class="string"><a href="#replace">replace</a></li>
+      <li class="string"><a href="#reverse">reverse</a></li>
+      <li class="string"><a href="#search">search</a></li>
+      <li class="string"><a href="#shift">shift</a></li>
+      <li class="string"><a href="#shift_">shift_</a></li>
+      <li class="string"><a href="#slice">slice</a></li>
+      <li class="string"><a href="#sort">sort</a></li>
+      <li class="string"><a href="#splice">splice</a></li>
+      <li class="string"><a href="#splice_">splice_</a></li>
+      <li class="string"><a href="#split">split</a></li>
+      <li class="string"><a href="#split_">split_</a></li>
+      <li class="string"><a href="#startsWith">startsWith</a></li>
+      <li class="string"><a href="#substr">substr</a></li>
+      <li class="string"><a href="#substring">substring</a></li>
+      <li class="string"><a href="#test">test</a></li>
+      <li class="number"><a href="#toExponential">toExponential</a></li>
+      <li class="number"><a href="#toFixed">toFixed</a></li>
+      <li class="string"><a href="#toLocaleLowerCase">toLocaleLowerCase</a></li>
+      <li class="string"><a href="#toLocaleUpperCase">toLocaleUpperCase</a></li>
+      <li class="number"><a href="#toPrecision">toPrecision</a></li>
+      <li class="all"><a href="#toString">toString</a></li>
+      <li class="string"><a href="#toUpperCase">toUpperCase</a></li>
+      <li class="string"><a href="#trim">trim</a></li>
+      <li class="string"><a href="#trimLeft">trimLeft</a></li>
+      <li class="string"><a href="#trimRight">trimRight</a></li>
+      <li class="string array"><a href="#unshift">unshift</a></li>
+      <li class="all"><a href="#valueOf">valueOf</a></li>
+    </ul>
+  </aside>
+
+
+  <div class="container">
+
+    <iframe src="./docs_files/github-btn.html" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="30" style="float:right"></iframe>
+
+    <h1>Lambdajs: lib1 – the base</h1>
+
+    <p>This library takes all the methods on instances of strings, arrays, objects, numbers, and regexp's and turns them into functions that all:</p>
+    <ol>
+      <li>Are curried</li>
+      <li>Take only a fixed number of arguments</li>
+      <li>Returns a single value</li>
+      <li>Does not mess with the argument(s) you gave the function</li>
+    </ol>
+    <p>Example:</p>
+<section>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="com">// Normal way:</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">];</span><span class="pln">
+a</span><span class="pun">.</span><span class="pln">push</span><span class="pun">(</span><span class="lit">4</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → 4</span><span class="pln">
+a</span><span class="pun">;</span><span class="pln"> </span><span class="com">// → [1, 2, 3, 4]</span><span class="pln">
+
+
+</span><span class="com">// lib1 way:</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> b </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">];</span><span class="pln">
+push</span><span class="pun">(</span><span class="lit">4</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → [1, 2, 3, 4]</span><span class="pln">
+b</span><span class="pun">;</span><span class="pln"> </span><span class="com">// → [1, 2, 3] (b is unaltered)</span><span class="pln">
+
+
+</span><span class="com">// We can also curry pop()</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> c </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">];</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> addFour </span><span class="pun">=</span><span class="pln"> pop</span><span class="pun">(</span><span class="lit">4</span><span class="pun">);</span><span class="pln">
+addFour</span><span class="pun">(</span><span class="pln">c</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → [1, 2, 3, 4]</span><span class="pln">
+
+
+</span><span class="com">// Functions that operate on arrays can (usually) also take strings</span><span class="pln">
+</span><span class="com">// Just think of "hello" as ['h','e','l','l','o'] and it should make sense</span><span class="pln">
+push</span><span class="pun">(</span><span class="str">" world"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"hello"</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → "hello world"</span><span class="pln">
+</span></pre>
+
+<p>Together with a <code>compose()</code> we can do nice things like:</p>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="com">// Currying some functions</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> fetchFirstSix </span><span class="pun">=</span><span class="pln"> substr</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">6</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> addName </span><span class="pun">=</span><span class="pln"> push</span><span class="pun">(</span><span class="str">"Bill"</span><span class="pun">);</span><span class="pln"> </span><span class="com">// concat() will work too</span><span class="pln">
+
+</span><span class="com">// Combining them</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> greet </span><span class="pun">=</span><span class="pln"> compose</span><span class="pun">(</span><span class="pln">addName</span><span class="pun">,</span><span class="pln"> fetchFirstSix</span><span class="pun">);</span><span class="pln">
+
+greet</span><span class="pun">(</span><span class="str">"Hello world"</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → "Hello Bill"</span></pre>
+</section>
+
+<br><br><br>
+<h1>Strings</h1>
+
+<section id="Strings.charAt">
+<h2>charAt <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charAt">mdn</a></small></h2>
+<code class="sig">charAt :: Int → String → String</code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="pln">charAt</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Hello world"</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → "e"</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> thirdChar </span><span class="pun">=</span><span class="pln"> charAt</span><span class="pun">(</span><span class="lit">2</span><span class="pun">);</span><span class="pln">
+thirdChar</span><span class="pun">(</span><span class="str">"Hello world"</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → "l"</span></pre>
+</section>
+
+<section id="Strings.charCodeAt">
+<h2>charCodeAt <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt">mdn</a></small></h2>
+<code class="sig">charCodeAt :: Int → String → Int</code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="pln">charCodeAt</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Hello world"</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → 101</span></pre>
+</section>
+
+<section id="Strings.concat">
+<h2>concat <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/concat">mdn</a></small></h2>
+<code class="sig">concat :: String -> String... -> String </code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="pln">concat</span><span class="pun">(</span><span class="str">"foo"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"bar"</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → "foobar"</span><span class="pln">
+
+<code class="language-javascript"><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> fooSomething </span><span class="pun">=</span><span class="pln"> concat</span><span class="pun">(</span><span class="str">"foo"</span><span class="pun">);</span><span class="pln">
+fooSomething</span><span class="pun">(</span><span class="str">"bar"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"baz"</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → "foobarbaz"</span></code>
+</pre>
+</section>
+
+<section id="Strings.indexOf">
+  <h2>indexOf <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf">mdn</a></small></h2>
+  <code class="sig">indexOf :: String → String → Int</code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="pln">indexOf</span><span class="pun">(</span><span class="pln"> </span><span class="str">"o"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"hello world!"</span><span class="pln"> </span><span class="pun">);</span><span class="pln"> </span><span class="com">// → 4</span>
+</pre>
+</section>
+
+<section id="Strings.indexOf_">
+  <h2>indexOf_ <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf">mdn</a></small></h2>
+  <code class="sig">indexOf_ :: String → Int → String → Int</code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="pln">indexOf_</span><span class="pun">(</span><span class="pln"> </span><span class="str">"welcome"</span><span class="pun">,</span><span class="pln"> <span class="lit">14</span><span class="pun">,</span> </span><span class="str">"Hello world, welcome to the welcomed universe."</span><span class="pln"></span><span class="pun">);</span><span class="pln"> </span><span class="com">// → 28</span>
+</pre>
+</section>
+
+<section id="Strings.lastIndexOf">
+  <h2>lastIndexOf <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf">mdn</a></small></h2>
+  <code class="sig">lastIndexOf :: String → String → Int</code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="pln">lastIndexOf</span><span class="pun">(</span><span class="pln"> </span><span class="str">"o"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"hello world!"</span><span class="pln"> </span><span class="pun">);</span><span class="pln"> </span><span class="com">// → 7</span><span class="pln">
+</pre>
+</section>
+
+<section id="Strings.match">
+  <h2>match <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match">mdn</a></small></h2>
+  <code class="sig">match :: Regexp|String → String → [String]</code>
+<pre class="prettyprint lang-js prettyprinted" style="">
+<code class="language-javascript"><span class="kwd">var</span><span class="pln"> str</span><span class="pun"> = </span><span class="str">"The rain in SPAIN stays mainly in the plain"</span><span class="pun">;</span><span class="pln"> 
+match</span><span class="pun">(</span><span class="str" >/ain/</span><span class="pln">g</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → ['ain','ain','ain']</span></code>
+</pre>
+</section>
+
+<section id="Strings.replace">
+  <h2>replace <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace">mdn</a></small></h2>
+  <code class="sig">replace :: Regexp|String → String → String → String</code>
+<pre class="prettyprint lang-js prettyprinted" style=""><code class="language-javascript"><span class="kwd">var</span><span class="pln"> str </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Visit Microsoft!"</span><span class="pun">;</span><span class="pln">
+replace</span><span class="pun">(</span><span class="str">"Microsoft"</span><span class="pun">,</span><span class="str">"W3Schools"</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → 'Visit W3Schools!'</span></code>
+</pre>
+</section>
+
+<section id="Strings.search">
+  <h2>search <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search">mdn</a></small></h2>
+  <code class="sig">search :: Regexp|String → String → Int</code>
+<pre class="prettyprint"><code class="language-javascript"><span class="kwd">var</span><span class="pln"> str</span><span class="pun">=</span><span class="str">"Visit W3Schools!"</span><span class="pun">;</span><span class="pln">
+search</span><span class="pun">(</span><span class="str">"W3Schools"</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">);</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="pun">/</span><span class="lit">6</span></code></pre>
+</section>
+
+<section id="Strings.slice">
+  <h2>slice <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice">mdn</a></small></h2>
+  <code class="sig">slice :: Int → String → String</code>
+<pre class="prettyprint lang-js prettyprinted" style="">slice</span><span class="pun">(</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="str">"hello world!"</span><span class="pln"> </span><span class="pun">);</span><span class="pln"> </span><span class="com">// → "ello world!"</span></pre>
+</section>
+
+<section id="Strings.slice_">
+  <h2>slice_ <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice">mdn</a></small></h2>
+  <code class="sig">slice_ :: Int → Int → String → String</code>
+<pre class="prettyprint lang-js prettyprinted" style="">slice_</span><span class="pun">(</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="str">"hello world!"</span><span class="pln"> </span><span class="pun">);</span><span class="pln"> </span><span class="com">// → "ello worl"</span></pre>
+</section>
+
+<section id="Strings.split">
+  <h2>split <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split">mdn</a></small></h2>
+  <code class="sig">split :: String → String → [String]</code>
+<pre class="prettyprint"><code class="language-javascript"><span class="kwd">var</span><span class="pln"> str </span><span class="pun">=</span><span class="pln"> </span><span class="str">"How are you doing today?"</span><span class="pun">;</span><span class="pln">
+split</span><span class="pun">(</span><span class="str">" "</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">));</span><span class="pln"> </span><span class="com">// → ['How','are','you','doing','today?']</span></code></pre>
+</section>
+
+<section id="Strings.split_">
+  <h2>split_ <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split">mdn</a></small></h2>
+  <code class="sig">split_ :: String → Int → String → [String]</code>
+<pre class="prettyprint"><code class="language-javascript"><span class="kwd">var</span><span class="pln"> str </span><span class="pun">=</span><span class="pln"> </span><span class="str">"How are you doing today?"</span><span class="pun">;</span><span class="pln">
+split_</span><span class="pun">(</span><span class="str">" "</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → ['How','are']</span></code></pre>
+</section>
+
+
+<section id="Strings.substring">
+  <h2>substring <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring">mdn</a></small></h2>
+  <code class="sig">substring :: Int → String → String</code>
+<pre class="prettyprint"><code class="language-javascript"><span class="kwd">var</span><span class="pln"> str </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Hello world!"</span><span class="pun">;</span><span class="pln">
+substring</span><span class="pun">(</span><span class="lit">3</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → 'lo world!'</span></code></pre>
+</section>
+
+<section id="Strings.substring_">
+  <h2>substring_ <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring">mdn</a></small></h2>
+  <code class="sig">substring_ :: Int → Int → String → String</code>
+<pre class="prettyprint"><code class="language-javascript"><span class="kwd">var</span><span class="pln"> str </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Hello world!"</span><span class="pun">;</span><span class="pln">
+substring</span><span class="pun">(</span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → 'lo'</span></code></pre></section>
+
+<section id="Strings.toLocaleLowerCase">
+  <h2>toLocaleLowerCase <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleLowerCase">mdn</a></small></h2>
+  <code class="sig">toLocaleLowerCase :: String → String</code>
+<pre class="prettyprint"><code class="language-javascript"><span class="kwd">var</span><span class="pln"> str </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Hello World!"</span><span class="pun">;</span><span class="pln">
+toLocaleLowerCase</span><span class="pun">(</span><span class="pln">str</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → 'hello world!'</span></code></pre>
+</section>
+
+<section id="Strings.toLocaleUpperCase">
+  <h2>toLocaleUpperCase <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleUpperCase">mdn</a></small></h2>
+  <code class="sig">toLocaleUpperCase :: String → String</code>
+<pre class="prettyprint"><code class="language-javascript"><span class="kwd">var</span><span class="pln"> str </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Hello World!"</span><span class="pun">;</span><span class="pln">
+toLocaleUpperCase</span><span class="pun">(</span><span class="pln">str</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → 'HELLO WORLD!'</span></code></pre>
+</section>
+
+<section id="Strings.toLowerCase">
+  <h2>toLowerCase <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase">mdn</a></small></h2>
+  <code class="sig">toLowerCase :: String → String</code>
+<pre class="prettyprint"><code class="language-javascript"><span class="kwd">var</span><span class="pln"> str </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Hello World!"</span><span class="pun">;</span><span class="pln">
+toLowerCase</span><span class="pun">(</span><span class="pln">str</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → 'hello world!'</span></code></pre>
+</section>
+
+<section id="Strings.toUpperCase">
+  <h2>toUpperCase <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase">mdn</a></small></h2>
+  <code class="sig">toUpperCase :: String → String</code>
+<pre class="prettyprint"><code class="language-javascript"><span class="kwd">var</span><span class="pln"> str </span><span class="pun">=</span><span class="pln"> </span><span class="str">"Hello World!"</span><span class="pun">;</span><span class="pln">
+toUpperCase</span><span class="pun">(</span><span class="pln">str</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → 'HELLO WORLD!'</span></code></pre>
+</section>
+
+<section id="Strings.trim">
+  <h2>trim <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trim">mdn</a></small></h2>
+  <code class="sig">trim :: String → String</code>
+<pre class="prettyprint"><code class="language-javascript"><span class="kwd">var</span><span class="pln"> str </span><span class="pun">=</span><span class="pln"> </span><span class="str">" Hello World! "</span><span class="pun">;</span><span class="pln">
+trim</span><span class="pun">(</span><span class="pln">str</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → 'Hello world!'</span></code></pre>
+</section>
+
+<br><br>
+<h2>Arrays</h2>
+
+<section id="Arrays.concat">
+<h2>concat <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat">mdn</a></small></h2>
+<code class="sig">concat :: [a] → [a] → [a] </code>
+<pre class="prettyprint lang-js prettyprinted" style="">concat</span><span class="pun">([</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">],</span><span class="pln"> </span><span class="pun">[</span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">]</span><span class="pln"> </span><span class="pun">);</span><span class="pln"> </span><span class="com">// → [1, 2, 3, 4, 5]</span>
+<span class="pln">
+</span><span class="kwd">var</span><span class="pln"> oneTwo </span><span class="pun">=</span><span class="pln"> concat</span><span class="pun">([</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">]);</span><span class="pln"></span>
+oneTwo</span><span class="pun">([</span><span class="lit">3</span><span class="pun">, </span><span class="lit">4</span><span class="pun">],</span><span class="pln"> </span><span class="pun">[</span><span class="lit">5</span><span class="pun">]);</span><span class="pln"> </span><span class="com">// → [1, 2, 3, 4, 5]</span></code>
+</pre>
+</section>
+
+<section id="Arrays.every">
+<h2>every <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every">mdn</a></small></h2>
+<code class="sig">every :: (a → Boolean) → [a] → Boolean </code>
+<pre class="prettyprint"><code class="language-javascript">every</span><span class="pun">(</span><span class="pln">lte</span><span class="pun">(</span><span class="lit">10</span><span class="pun">),</span><span class="pln"> </span><span class="pun">[</span><span class="lit">12</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">8</span><span class="pun">,</span><span class="pln"> </span><span class="lit">130</span><span class="pun">,</span><span class="pln"> </span><span class="lit">44</span><span class="pun">]);</span><span class="pln"> </span><span class="com">// → false</span><span class="pln"></span>
+<span class="pln">every</span><span class="pun">(</span><span class="pln">gte</span><span class="pun">(</span><span class="lit">4</span><span class="pun">),</span><span class="pln"> </span><span class="pun">[</span><span class="lit">12</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">8</span><span class="pun">,</span><span class="pln"> </span><span class="lit">130</span><span class="pun">,</span><span class="pln"> </span><span class="lit">44</span><span class="pun">]);</span><span class="pln"> </span><span class="com">// → true</span></code></pre>
+</pre>
+</section>
+
+<section id="Arrays.filter">
+<h2>filter <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">mdn</a></small></h2>
+<code class="sig">filter :: (a → Boolean) → [a] → [a] </code>
+<pre class="prettyprint"><code class="language-javascript"><span class="kwd">var</span><span class="pln"> isEven </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">n</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> </span><span class="pun">!(</span><span class="pln">n </span><span class="pun">%</span><span class="pln"> </span><span class="lit">2</span><span class="pun">);</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+filter</span><span class="pun">(</span><span class="pln">isEven</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="lit">2</span><span class="pun">,</span><span class="lit">3</span><span class="pun">,</span><span class="lit">4</span><span class="pun">]);</span><span class="pln"> </span><span class="com">// → [2,4];</span></code></pre>
+</section>
+
+<section id="Arrays.forEach">
+<h2>forEach <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">mdn</a></small></h2>
+<code class="sig">forEach :: (a -> _) -> [a] -> undefined </code>
+<pre class="prettyprint"><code class="language-javascript"><span class="kwd">var</span><span class="pln"> x </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> addToX </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">y</span><span class="pun">){</span><span class="pln"> x </span><span class="pun">+=</span><span class="pln"> y </span><span class="pun">}</span><span class="pln">
+forEach</span><span class="pun">(</span><span class="pln">addToX</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">]);</span><span class="pln">
+x</span><span class="pun">;</span><span class="pln"> </span><span class="com">// → 8</span></code></pre>
+</section>
+
+<section id="Arrays.indexOf">
+  <h2>indexOf <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf">mdn</a></small></h2>
+  <code class="sig">indexOf :: a → [a] → Int</code>
+<pre class="prettyprint lang-js prettyprinted" style="">indexOf</span><span class="pun">(</span><span class="lit">2</span><span class="pun">, </span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">, </span><span class="lit">2</span><span class="pun">, </span><span class="lit">3</span><span class="pun">]);</span><span class="pln"> </span><span class="com">// → 1</span>
+</pre>
+</section>
+
+<section id="Arrays.indexOf_">
+  <h2>indexOf_ <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf">mdn</a></small></h2>
+  <code class="sig">indexOf_ :: a → Int → [a] → Int</code>
+<pre class="prettyprint lang-js prettyprinted" style="">indexOf_</span><span class="pun">(</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">]</span><span class="pln"> </span><span class="pun">);</span><span class="pln"> </span><span class="com">// → 3</span>
+</pre>
+</section>
+
+<section id="Arrays.join">
+  <h2>join <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join">mdn</a></small></h2>
+  <code class="sig">join :: [a] → String</code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="pln">join</span><span class="pun">(</span><span class="str">" - "</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">]);</span><span class="pln"> </span><span class="com">// → "1 - 2 - 3"</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> joinWithDash </span><span class="pun">=</span><span class="pln"> join</span><span class="pun">(</span><span class="str">" - "</span><span class="pun">);</span><span class="pln">
+joinWithDash</span><span class="pun">([</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">]);</span><span class="pln"> </span><span class="com">// → "1 - 2 - 3"</span></pre>
+</section>
+
+
+<section id="Arrays.lastIndexOf">
+  <h2>lastIndexOf <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf">mdn</a></small></h2>
+  <code class="sig">lastIndexOf :: a → [a] → Int</code>
+<pre class="prettyprint lang-js prettyprinted" style="">lastIndexOf</span><span class="pun">(</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4</span><span class="pun">]</span><span class="pln"> </span><span class="pun">);</span><span class="pln"> </span><span class="com">// → 7</span></pre>
+</section>
+
+<section id="Arrays.map">
+  <h2>map <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">mdn</a></small></h2>
+  <code class="sig">map :: (a → b) → [a] → [b]</code>
+<pre class="prettyprint"><code class="language-javascript">map</span><span class="pun">(</span><span class="pln">add</span><span class="pun">(</span><span class="lit">1</span><span class="pun">),</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="lit">2</span><span class="pun">,</span><span class="lit">3</span><span class="pun">,</span><span class="lit">4</span><span class="pun">]);</span><span class="pln"> </span><span class="com">// → [2, 3, 4, 5]</span></code></pre>
+</section>
+
+<section id="Arrays.pop">
+  <h2>pop <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop">mdn</a></small></h2>
+  <code class="sig">pop :: [a] → [a]</code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">];</span><span class="pln">
+pop</span><span class="pun">(</span><span class="pln">a</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → [1, 2]</span><span class="pln">
+a</span><span class="pun">;</span><span class="pln"> </span><span class="com">// → [1, 2, 3] (a is unaltered)</span><span class="pln">
+</pre>
+</section>
+
+<section id="Arrays.push">
+  <h2>push <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push">mdn</a></small></h2>
+  <code class="sig">push :: a → [a] → [a]</code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">];</span><span class="pln">
+push</span><span class="pun">(</span><span class="str">'z'</span><span class="pun">,</span><span class="pln"> a</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → [1, 2, 3, 'z']</span><span class="pln">
+a</span><span class="pun">;</span><span class="pln"> </span><span class="com">// → [1, 2, 3] (a is unaltered)</span><span class="pln">
+</pre>
+</section>
+
+<section id="Arrays.reduce">
+  <h2>reduce <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce">mdn</a></small></h2>
+  <code class="sig">reduce :: (b → a → b) → b → [a] → b</code>
+<pre class="prettyprint"><span class="kwd">var</span><span class="pln"> words </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'foo'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'baz'</span><span class="pun">];</span><span class="pln">
+reduce</span><span class="pun">(</span><span class="pln">add</span><span class="pun">,</span><span class="pln"> </span><span class="str">""</span><span class="pun">,</span><span class="pln"> words</span><span class="pun">)</span><span class="pln"> </span><span class="com">// → 'foobarbaz'</span></pre>
+</section>
+
+<section id="Arrays.reduceRight">
+  <h2>reduceRight <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce">mdn</a></small></h2>
+  <code class="sig">reduceRight :: (b → a → b) → b → [a] → b</code>
+<pre class="prettyprint"><code class="language-javascript"><span class="kwd">var</span><span class="pln"> words </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="str">'foo'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'bar'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'baz'</span><span class="pun">];</span><span class="pln">
+reduceRight</span><span class="pun">(</span><span class="pln">add</span><span class="pun">,</span><span class="pln"> </span><span class="str">''</span><span class="pun">,</span><span class="pln"> words</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → 'bazbarfoo'</span></code></pre>
+</section>
+
+<section id="Arrays.reverse">
+  <h2>reverse <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse">mdn</a></small></h2>
+  <code class="sig">reverse :: a → a</code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">];</span><span class="pln">
+reverse</span><span class="pun">(</span><span class="pln">a</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → [3, 2, 1]</span><span class="pln">
+a</span><span class="pun">;</span><span class="pln"> </span><span class="com">// → [1, 2, 3] (a is unaltered)</span></pre>
+</section>
+
+<section id="Arrays.shift">
+  <h2>shift <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift">mdn</a></small></h2>
+  <code class="sig">shift :: a → a</code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">];</span><span class="pln">
+shift</span><span class="pun">(</span><span class="pln">a</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → [2, 3]</span><span class="pln">
+a</span><span class="pun">;</span><span class="pln"> </span><span class="com">// → [1, 2, 3] (a is unaltered)</span>
+</pre>
+</section>
+
+<section id="Arrays.slice">
+  <h2>slice <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice">mdn</a></small></h2>
+  <code class="sig">slice :: Int → a → a</code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">];</span><span class="pln">
+
+slice</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> a</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → [2, 3]</span>
+</pre>
+</section>
+
+<section id="Arrays.slice_">
+  <h2>slice_ <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice_">mdn</a></small></h2>
+  <code class="sig">slice_ :: Int → Int → a → a</code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="kwd">var</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">];</span><span class="pln">
+
+slice_</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> a</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → [2, 3]</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> getFirstTwo </span><span class="pun">=</span><span class="pln"> slice_</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2</span><span class="pun">);</span><span class="pln">
+getFirstTwo</span><span class="pun">(</span><span class="pln">a</span><span class="pun">);</span><span class="pln"> </span><span class="com">// → [1, 2]</span>
+</pre>
+</section>
+
+<section id="Arrays.some">
+  <h2>some <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some">mdn</a></small></h2>
+  <code class="sig">some :: [a] → [a]</code>
+  
+</section>
+
+
+<section id="Arrays.sort">
+  <h2>sort <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">mdn</a></small></h2>
+  <code class="sig">sort :: [a] → [a]</code>
+<pre class="prettyprint lang-js prettyprinted" style="">sort</span><span class="pun">([</span><span class="str">"Delta"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"alpha"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"CHARLIE"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"bravo"</span><span class="pun">]);</span> <span class="com">// → ["CHARLIE", "Delta", "alpha", "bravo"]</span></pre>
+</section>
+
+<section id="Arrays.splice">
+  <h2>splice <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice">mdn</a></small></h2>
+  <code class="sig">splice :: Int → Int → [a] → [a]</code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="pln">splice</span><span class="pun">(</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Hello world!"</span><span class="pun">);</span><span class="pln"> </span><span class="pun">→</span><span class="pln"> </span><span class="str">"He world!"</span><span class="pln">
+
+splice</span><span class="pun">(</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="str">"zero"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"one"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"two"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"three"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"four"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"five"</span><span class="pun">]);</span><span class="pln">
+</span><span class="com">// → ["zero", "one", "five"]</span></pre>
+</section>
+
+<section id="Arrays.splice_">
+  <h2>splice_ <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice_">mdn</a></small></h2>
+  <code class="sig">splice_ :: Int → Int → a → [a] → [a]</code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="pln">splice_</span><span class="pun">(</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="str">"hi"</span><span class="pun">,</span><span class="pln"> </span><span class="pun">[</span><span class="str">"zero"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"one"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"two"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"three"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"four"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"five"</span><span class="pun">]);</span><span class="pln">
+</span><span class="com">// → ["zero", "one", "hi", "five"]</span><span class="pln">
+
+splice_</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="str">"What a wonderful"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Hello world!"</span><span class="pun">)</span><span class="pln">
+</span><span class="com">// → "What a wonderful world!"</span></pre>
+</section>
+
+
+<section id="propertyIsEnumerable">
+  <h2>propertyIsEnumerable <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable">mdn</a></small></h2>
+  <code class="sig">propertyIsEnumerable :: </code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="com">// TODO - Have a look in the mdn documentation just above</span></pre>
+</section>
+
+<section id="exec">
+  <h2>exec <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec">mdn</a></small></h2>
+  <code class="sig">exec :: RegExp → String → [String]</code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="pln">exec</span><span class="pun">(</span><span class="pln"> </span><span class="str">/(hello \S+)/</span><span class="pun">,</span><span class="pln"> </span><span class="str">'This is a hello world!'</span><span class="pun">)[</span><span class="lit">1</span><span class="pun">];</span><span class="pln"> </span><span class="com">// → "hello world!" </span></pre>
+</section>
+
+<section id="hasOwnProperty">
+  <h2>hasOwnProperty <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty">mdn</a></small></h2>
+  <code class="sig">hasOwnProperty :: </code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="com">// TODO - Have a look in the mdn documentation just above</span></pre>
+</section>
+
+
+<section id="isPrototypeOf">
+  <h2>isPrototypeOf <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf">mdn</a></small></h2>
+  <code class="sig">isPrototypeOf :: </code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="com">// TODO - Have a look in the mdn documentation just above</span></pre>
+</section>
+
+<section id="test">
+  <h2>test <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test">mdn</a></small></h2>
+  <code class="sig">test :: </code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="com">// TODO - Have a look in the mdn documentation just above</span></pre>
+</section>
+
+<section id="toExponential">
+  <h2>toExponential <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential">mdn</a></small></h2>
+  <code class="sig">toExponential :: </code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="com">// TODO - Have a look in the mdn documentation just above</span></pre>
+</section>
+
+<section id="toFixed">
+  <h2>toFixed <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed">mdn</a></small></h2>
+  <code class="sig">toFixed :: </code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="com">// TODO - Have a look in the mdn documentation just above</span></pre>
+</section>
+
+<section id="toPrecision">
+  <h2>toPrecision <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toPrecision">mdn</a></small></h2>
+  <code class="sig">toPrecision :: </code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="com">// TODO - Have a look in the mdn documentation just above</span></pre>
+</section>
+
+<section id="toString">
+  <h2>toString <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toString">mdn</a></small></h2>
+  <code class="sig">toString :: </code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="com">// TODO - Have a look in the mdn documentation just above</span></pre>
+</section>
+
+<section id="unshift">
+  <h2>unshift <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift">mdn</a></small></h2>
+  <code class="sig">unshift :: </code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="com">// TODO - Have a look in the mdn documentation just above</span></pre>
+</section>
+
+<section id="valueOf">
+  <h2>valueOf <small><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/valueOf">mdn</a></small></h2>
+  <code class="sig">valueOf :: </code>
+<pre class="prettyprint lang-js prettyprinted" style=""><span class="com">// TODO - Have a look in the mdn documentation just above</span></pre>
+</section>
+
+
+
+
+  </div>
+
+<script>l = function(x) { return x; }</script>
+
+<script src="./docs_files/jquery.min.js"></script>
+<script>
+  nav_items = {
+    filters : $('aside nav span'),
+    all : $('aside li'),
+    string : $('aside li.string'),
+    array  : $('aside li.array'),
+    number : $('aside li.number'),
+    object : $('aside li.object'),
+    regexp : $('aside li.regexp')
+  };
+  $('aside nav').on('click', function(e) {
+    key = $(e.target).data('show');
+    if( key ){
+      nav_items.all.hide();
+      nav_items[key].show(); 
+      nav_items.filters.removeClass('current');
+      $(e.target).addClass('current');
+    }
+  });
+</script>
+
+
+</body></html>
