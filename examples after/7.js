@@ -34,9 +34,9 @@ var getResults = _.curry(function(text, input) {
 
 var guessLength = function() {
 	return liftA2(getResults, readFile('gadsby.txt'), askUser("What's the length?"))
-}
+};
 
-fmap(log, guessLength())
+fmap(log, guessLength());
 
 
 

@@ -4,7 +4,7 @@ require('pointfree-fantasy').expose(global);
 require('lenses').expose(global);
 
 var markdown = require('markdown').parse;
-var _ = require('lodash')
+var _ = require('lodash');
 var Maybe = require('pointfree-fantasy/instances/maybe');
 var Either = require('pointfree-fantasy/instances/either');
 var Promise = require('../support/promise');
@@ -34,7 +34,7 @@ var getResults = _.curry(function(text, input) {
 
 var guessLength = ?
 
-fmap(log, guessLength())
+fmap(log, guessLength());
 
 
 
