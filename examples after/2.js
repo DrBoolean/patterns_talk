@@ -11,15 +11,15 @@ var readFile = function(path) { return fs.readFile(path, 'utf-8') };
 
 
 
-var showLength = compose(concat('The length is: '), pluck('length'))
+var showLength = compose(concat('The length is: '), pluck('length'));
 
-var getWords = compose(Maybe, match(/\w+/g))
+var getWords = compose(Maybe, match(/\w+/g));
 
-var prog = compose(fmap(showLength), getWords)
+var prog = compose(fmap(showLength), getWords);
 
-var result = prog('i got some words')
+var result = prog('i got some words');
 
-log(result)
+log(result);
 
 
 

@@ -12,11 +12,11 @@ var readFile = function(path) { return fs.readFile(path, 'utf-8') };
 
 
 
-var prog = compose(pluck('length'), match(/\w+/g))
+var prog = compose(pluck('length'), match(/\w+/g));
 
-var result = prog('i got some words')
+var result = prog('i got some words');
 
-log(result)
+log(result);
 
 
 

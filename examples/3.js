@@ -29,15 +29,15 @@ var flatMap = _.curry(function(f, x) { return compose(mjoin, fmap(f))(x); });
 
 
 
-var showLength = compose(concat('The length is: '), pluck('length'))
+var showLength = compose(concat('The length is: '), pluck('length'));
 
-var getWords = compose(Maybe, match(/\w+/g))
+var getWords = compose(Maybe, match(/\w+/g));
 
-var prog = compose(fmap(showLength), getWords)
+var prog = compose(fmap(showLength), getWords);
 
-var result = prog('blah blah')
+var result = prog('blah blah');
 
-log(result)
+log(result);
 
 
 

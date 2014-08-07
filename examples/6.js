@@ -21,17 +21,17 @@ function askUser(prompt) {
 
 
 
-var showLength = compose(concat('The length is: '), pluck('length'))
+var showLength = compose(concat('The length is: '), pluck('length'));
 
-var getWords = compose(Maybe, match(/\w+/g))
+var getWords = compose(Maybe, match(/\w+/g));
 
-var showWordLength = compose(fmap(showLength), getWords)
+var showWordLength = compose(fmap(showLength), getWords);
 
-var prog = compose(fmap(showWordLength), readFile)
+var prog = compose(fmap(showWordLength), readFile);
 
-var result = prog('what file?')
+var result = prog('what file?');
 
-fmap(log, result)
+fmap(log, result);
 
 
 

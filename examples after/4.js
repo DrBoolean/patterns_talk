@@ -17,14 +17,14 @@ var readFile = function(path) { return fs.readFile(path, 'utf-8') };
 
 
 
-var makeUser = _.curry(function(first, last) { return first +" "+last + ' created!' })
+var makeUser = _.curry(function(first, last) { return first +" "+last + ' created!' });
 
 var create = function(first, last) {
 	return liftA2(makeUser, Either('enter a first name', first), Either('enter a last name', last))
 };
 
-var result = create('Sal', 'Woodsman')
-log(result)
+var result = create('Sal', 'Woodsman');
+log(result);
 
 
 
