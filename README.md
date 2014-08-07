@@ -4,4 +4,5 @@ Run this this stuff with node:
 
 $> node examples/1.js
 
-Teaching this junk May 9th at http://frontendmasters.com/workshops/functional-programming-javascript/
+*Some of these are out of date* 
+Pointfree fantasy has changed `flatMap` to `chain` and `fmap` to `map`
